@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		036F90952C8D05480076AEDC /* StreetViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90942C8D05480076AEDC /* StreetViewComposer.swift */; };
+		036F90972C8D065F0076AEDC /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90962C8D065F0076AEDC /* GoogleMaps.swift */; };
+		036F90992C8D3ACF0076AEDC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90982C8D3ACF0076AEDC /* Extension.swift */; };
+		036F909B2C8D6E540076AEDC /* EnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F909A2C8D6E540076AEDC /* EnvironmentView.swift */; };
+		036F90DD2C9150990076AEDC /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90DC2C9150990076AEDC /* LocationService.swift */; };
+		036F90E42C91564E0076AEDC /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90E32C91564E0076AEDC /* SheetView.swift */; };
 		03C23E1B2C8C1C8700EE24BA /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 03C23E1A2C8C1C8700EE24BA /* RealityKitContent */; };
 		03C23E1D2C8C1C8700EE24BA /* TeleportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C23E1C2C8C1C8700EE24BA /* TeleportApp.swift */; };
-		03C23E1F2C8C1C8700EE24BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C23E1E2C8C1C8700EE24BA /* ContentView.swift */; };
+		03C23E1F2C8C1C8700EE24BA /* TeleportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C23E1E2C8C1C8700EE24BA /* TeleportView.swift */; };
 		03C23E212C8C1C8900EE24BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C23E202C8C1C8900EE24BA /* Assets.xcassets */; };
 		03C23E242C8C1C8900EE24BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C23E232C8C1C8900EE24BA /* Preview Assets.xcassets */; };
 		03C23E2F2C8C1C8900EE24BA /* TeleportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C23E2E2C8C1C8900EE24BA /* TeleportTests.swift */; };
+		03C23E392C8C1F1B00EE24BA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C23E382C8C1F1B00EE24BA /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +33,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		036F90942C8D05480076AEDC /* StreetViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetViewComposer.swift; sourceTree = "<group>"; };
+		036F90962C8D065F0076AEDC /* GoogleMaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMaps.swift; sourceTree = "<group>"; };
+		036F90982C8D3ACF0076AEDC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		036F909A2C8D6E540076AEDC /* EnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentView.swift; sourceTree = "<group>"; };
+		036F90DC2C9150990076AEDC /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		036F90E32C91564E0076AEDC /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		03C23E152C8C1C8700EE24BA /* Teleport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teleport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C23E192C8C1C8700EE24BA /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		03C23E1C2C8C1C8700EE24BA /* TeleportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleportApp.swift; sourceTree = "<group>"; };
-		03C23E1E2C8C1C8700EE24BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		03C23E1E2C8C1C8700EE24BA /* TeleportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleportView.swift; sourceTree = "<group>"; };
 		03C23E202C8C1C8900EE24BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03C23E232C8C1C8900EE24BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03C23E252C8C1C8900EE24BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03C23E2A2C8C1C8900EE24BA /* TeleportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeleportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C23E2E2C8C1C8900EE24BA /* TeleportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleportTests.swift; sourceTree = "<group>"; };
+		03C23E382C8C1F1B00EE24BA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036F90DE2C9150A00076AEDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				03C23E1E2C8C1C8700EE24BA /* TeleportView.swift */,
+				036F909A2C8D6E540076AEDC /* EnvironmentView.swift */,
+				03C23E382C8C1F1B00EE24BA /* MapView.swift */,
+				036F90E32C91564E0076AEDC /* SheetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		036F90E12C9150CC0076AEDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				036F90942C8D05480076AEDC /* StreetViewComposer.swift */,
+				036F90962C8D065F0076AEDC /* GoogleMaps.swift */,
+				036F90DC2C9150990076AEDC /* LocationService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		036F90E22C9151970076AEDC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				036F90982C8D3ACF0076AEDC /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		03C23E0C2C8C1C8700EE24BA = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				03C23E1C2C8C1C8700EE24BA /* TeleportApp.swift */,
-				03C23E1E2C8C1C8700EE24BA /* ContentView.swift */,
+				036F90DE2C9150A00076AEDC /* View */,
+				036F90E12C9150CC0076AEDC /* Model */,
+				036F90E22C9151970076AEDC /* Extension */,
 				03C23E202C8C1C8900EE24BA /* Assets.xcassets */,
 				03C23E252C8C1C8900EE24BA /* Info.plist */,
 				03C23E222C8C1C8900EE24BA /* Preview Content */,
@@ -214,7 +259,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C23E1F2C8C1C8700EE24BA /* ContentView.swift in Sources */,
+				036F90972C8D065F0076AEDC /* GoogleMaps.swift in Sources */,
+				036F90E42C91564E0076AEDC /* SheetView.swift in Sources */,
+				03C23E1F2C8C1C8700EE24BA /* TeleportView.swift in Sources */,
+				036F90DD2C9150990076AEDC /* LocationService.swift in Sources */,
+				036F909B2C8D6E540076AEDC /* EnvironmentView.swift in Sources */,
+				036F90952C8D05480076AEDC /* StreetViewComposer.swift in Sources */,
+				036F90992C8D3ACF0076AEDC /* Extension.swift in Sources */,
+				03C23E392C8C1F1B00EE24BA /* MapView.swift in Sources */,
 				03C23E1D2C8C1C8700EE24BA /* TeleportApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
