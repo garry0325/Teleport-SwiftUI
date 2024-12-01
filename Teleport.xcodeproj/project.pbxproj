@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033325802CFD1949001A1275 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333257F2CFD1949001A1275 /* Global.swift */; };
 		036F90952C8D05480076AEDC /* StreetViewComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90942C8D05480076AEDC /* StreetViewComposer.swift */; };
 		036F90972C8D065F0076AEDC /* GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90962C8D065F0076AEDC /* GoogleMaps.swift */; };
 		036F90992C8D3ACF0076AEDC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036F90982C8D3ACF0076AEDC /* Extension.swift */; };

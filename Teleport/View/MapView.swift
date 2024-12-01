@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @State private var mapCameraPosition = MapCameraPosition.region(MKCoordinateRegion(center: StartingLocation, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+    @State private var mapCameraPosition = MapCameraPosition.region(MKCoordinateRegion(center: StartingLocation, span: StartingSpan))
     @Binding var isSheetPresented: Bool
     @Binding var droppedPinLocation: CLLocationCoordinate2D?
     @Binding var sheetViewLocation: CLLocationCoordinate2D?
@@ -53,4 +53,11 @@ struct MapView: View {
     MapView(isSheetPresented: .constant(false), droppedPinLocation: .constant(CLLocationCoordinate2D(latitude: 37, longitude: -120)), sheetViewLocation: .constant(CLLocationCoordinate2D(latitude: 40, longitude: -110)))
 }
 
+#if DEBUG
 let StartingLocation = CLLocationCoordinate2D(latitude: 59.912005, longitude: 10.751368)
+let StartingSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+#else
+let StartingLocation = CLLocationCoordinate2D(latitude: 23.5, longitude: 150)
+let StartingSpan = MKCoordinateSpan(latitudeDelta: 180, longitudeDelta: 360)
+#endif
+
