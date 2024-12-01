@@ -53,31 +53,39 @@ class StreetViewComposer: ObservableObject {
         realityViewEntity.scale *= .init(x: -1, y: 1, z: 1)
     }
     
-    func composeStreetView(coordinates: CLLocationCoordinate2D) async {
+    func composeStreetView(coordinates: CLLocationCoordinate2D) async -> Bool {
         DispatchQueue.main.async {
             self.isDownloading = true
         }
         print("Is Downloading")
+
+        defer {
+            DispatchQueue.main.async {
+                self.isDownloading = false
+            }
+        }
+        
         do {
             self.streetViewMetadata = try GoogleMaps.getStreetViewMetadata(fromCoordinates: coordinates)
         } catch {
             print(error)
-            return
+            return false
         }
         
-        await generateEquirectangularImage()
+        if await !generateEquirectangularImage() { return false }
         await generateRealityViewEntity()
         DispatchQueue.main.async {
             self.isDownloading = false
         }
         
         print("Downloaded")
+        return true
     }
     
-    private func generateEquirectangularImage() async {
+    private func generateEquirectangularImage() async -> Bool {
         guard let panoramaId = streetViewMetadata?.pano_id else {
             print("No pano_id found")
-            return
+            return false
         }
         
         let tileUrlQueries = defaultTileUrlQueries +
@@ -86,7 +94,7 @@ class StreetViewComposer: ObservableObject {
         
         guard let tileUrlWithDefaultQueries = URL(string: tileUrlString)?.appending(queryItems: tileUrlQueries) else {
             print("Error generating tile url")
-            return
+            return false
         }
         
         var tiles = [Tile]()
@@ -126,7 +134,7 @@ class StreetViewComposer: ObservableObject {
             print(error)
         }
         
-        guard let sampleTileImage = streetImageTiles[0][0] else { return }
+        guard let sampleTileImage = streetImageTiles[0][0] else { return false }
         let tileSize = sampleTileImage.size
         var mergedSize = CGSize(width: tileSize.width * CGFloat(xMax), height: tileSize.height * CGFloat(yMax))
         
@@ -150,6 +158,7 @@ class StreetViewComposer: ObservableObject {
         }
         
         self.equirectangularImage = mergedImage
+        return true
     }
     
     private func downloadTile(from url: URL) -> UIImage? {

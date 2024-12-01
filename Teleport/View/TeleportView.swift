@@ -21,6 +21,7 @@ struct TeleportView: View {
     
     @State var isShowingImmersiveSpace: Bool = false
     @State var isSheetPresented: Bool = false
+    @State var noErrorWithStreetView: Bool = true
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -38,48 +39,67 @@ struct TeleportView: View {
                     ]
                     ForEach(placemarkProperties, id: \.self) { property in
                         Text(property)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.primary)
                     }
                 }
                 .padding(30)
             }
             
-            HStack(alignment: .center) {
-                Button {
-                    isSheetPresented = true
-                } label: {
-                    Image(systemName: "magnifyingglass")
+            VStack {
+                VStack {
+                    Spacer()
                 }
                 
-                Button {
-                    guard let droppedPinLocation = droppedPinLocation else { return }
-                    Task {
-                        await streetViewComposer.composeStreetView(coordinates: droppedPinLocation)
-                        if !isShowingImmersiveSpace {
-                            await openImmersiveSpace(id: "StreetView")
-                        }
-                        isShowingImmersiveSpace = true
-                    }
-                } label: {
-                    if streetViewComposer.isDownloading {
-                        ProgressView()
-                    } else {
-                        Image(systemName: "figure.stand.line.dotted.figure.stand")
+                if !noErrorWithStreetView {
+                    Text("Error getting street view, or no street view nearby.")
+                        .font(.headline)
+                }
+                
+                HStack(alignment: .center) {
+                    Button {
+                        isSheetPresented = true
+                    } label: {
+                        Image(systemName: "magnifyingglass")
                     }
                     
-                }
-                .disabled(droppedPinLocation == nil)
-                
-                Button {
-                    Task {
-                        await dismissImmersiveSpace()
-                        isShowingImmersiveSpace = false
+                    Button {
+                        guard let droppedPinLocation = droppedPinLocation else { return }
+                        Task {
+                            noErrorWithStreetView = await streetViewComposer.composeStreetView(coordinates: droppedPinLocation)
+                            if noErrorWithStreetView {
+                                if !isShowingImmersiveSpace {
+                                    await openImmersiveSpace(id: "StreetView")
+                                }
+                                isShowingImmersiveSpace = true
+                            } else {
+                                if isShowingImmersiveSpace {
+                                    await dismissImmersiveSpace()
+                                    isShowingImmersiveSpace = false
+                                }
+                            }
+                        }
+                    } label: {
+                        if streetViewComposer.isDownloading {
+                            ProgressView()
+                        } else {
+                            Image(systemName: "figure.walk.motion")
+                        }
+                        
                     }
-                } label: {
-                    Image(systemName: "house")
+                    .disabled(droppedPinLocation == nil)
+                    
+                    Button {
+                        Task {
+                            await dismissImmersiveSpace()
+                            isShowingImmersiveSpace = false
+                        }
+                    } label: {
+                        Image(systemName: "house")
+                    }
                 }
+                .padding()
             }
-            .padding()
+            
         }
         .sheet(isPresented: $isSheetPresented) {
             SheetView(sheetViewLocation: $sheetViewLocation)
@@ -90,6 +110,7 @@ struct TeleportView: View {
         }
         .padding()
         .onChange(of: droppedPinLocation) { oldValue, newValue in
+            noErrorWithStreetView = true
             guard let droppedPinLocation = droppedPinLocation else { return }
             Task {
                 droppedPlacemark = await locationService.getPlacemarkFromCoordinates(coordinates: droppedPinLocation)
