@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030870CD2CF5B3E600D0B1AD /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
 		036F90942C8D05480076AEDC /* StreetViewComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetViewComposer.swift; sourceTree = "<group>"; };
 		036F90962C8D065F0076AEDC /* GoogleMaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMaps.swift; sourceTree = "<group>"; };
 		036F90982C8D3ACF0076AEDC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -70,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030870CC2CF5B3E600D0B1AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				030870CD2CF5B3E600D0B1AD /* RealityKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		036F90DE2C9150A00076AEDC /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +114,7 @@
 				03C23E172C8C1C8700EE24BA /* Teleport */,
 				03C23E182C8C1C8700EE24BA /* Packages */,
 				03C23E2D2C8C1C8900EE24BA /* TeleportTests */,
+				030870CC2CF5B3E600D0B1AD /* Frameworks */,
 				03C23E162C8C1C8700EE24BA /* Products */,
 			);
 			sourceTree = "<group>";
