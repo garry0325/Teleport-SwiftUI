@@ -12,7 +12,6 @@ class LocationService: NSObject, ObservableObject, MKLocalSearchCompleterDelegat
     private var completer: MKLocalSearchCompleter
     
     @Published var searchResults: [SearchResult] = []
-    @Published var searchMapItem: MKMapItem?
     
     init(completer: MKLocalSearchCompleter) {
         self.completer = MKLocalSearchCompleter()
@@ -55,14 +54,11 @@ class LocationService: NSObject, ObservableObject, MKLocalSearchCompleterDelegat
             }
             
             print("Found: \(firstMapItem.placemark.coordinate)")
-            DispatchQueue.main.async {
-                self.searchMapItem = firstMapItem
-            }
+            
+            return firstMapItem.placemark.coordinate
         } catch {
             return nil
         }
-        
-        return self.searchMapItem?.placemark.coordinate
     }
     
     func getPlacemarkFromCoordinates(coordinates: CLLocationCoordinate2D) async -> CLPlacemark? {
